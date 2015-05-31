@@ -24,8 +24,8 @@ public class MainWindow extends JFrame {
 	private JPanel contentPane;
 	private JTabbedPane tabs = new JTabbedPane();
 	private int addContactPane = 0;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField firstNametxt;
+	private JTextField lastNametxt;
 	/**
 	 * Launch the application.
 	 */
@@ -97,7 +97,8 @@ public class MainWindow extends JFrame {
 		btnDisplayContacts.addActionListener(
 			new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-			
+			      SearchContact  contacts = new SearchContact();
+			      contacts.setVisible(true);
 			}
 					
 				}
@@ -109,10 +110,10 @@ public class MainWindow extends JFrame {
 		separator.setBounds(27, 155, 402, 12);
 		contentPane.add(separator);
 		
-		textField = new JTextField();
-		textField.setBounds(92, 204, 200, 28);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		firstNametxt = new JTextField();
+		firstNametxt.setBounds(92, 204, 200, 28);
+		contentPane.add(firstNametxt);
+		firstNametxt.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("First Name");
 		lblNewLabel.setBounds(17, 210, 140, 16);
@@ -123,16 +124,22 @@ public class MainWindow extends JFrame {
 		lblNewLabel_1.setBounds(27, 168, 290, 35);
 		contentPane.add(lblNewLabel_1);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(92, 238, 200, 28);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
+		lastNametxt = new JTextField();
+		lastNametxt.setBounds(92, 238, 200, 28);
+		contentPane.add(lastNametxt);
+		lastNametxt.setColumns(10);
 		
 		JLabel lblLastName = new JLabel("Last Name");
 		lblLastName.setBounds(17, 244, 79, 16);
 		contentPane.add(lblLastName);
 		
 		JButton btnSearch = new JButton("Search");
+		btnSearch.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String lastName = lastNametxt.getText(),firstName = firstNametxt.getText();
+				
+			}
+		});
 		btnSearch.setBounds(304, 204, 125, 56);
 		contentPane.add(btnSearch);
 	}
